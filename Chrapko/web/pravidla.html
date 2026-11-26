@@ -1,16 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flappy Bird</title>
+    <title>Pravidla - Flappy Bird</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="app">
-        <a href="index.html">home</a>
-        <a href="diagramy.html">diagramy</a>
-        <a href="leaderboard.html">leaderboard</a>
-        <a href="pravidla.html">pravidla</a>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/diagramy">Diagramy</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/pravidla">Pravidla</a>
+        <span class="prihlaseni">
+            {% if hrac %}
+                Hrac: {{ hrac }} | <a href="/logout">Odhlasit</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/registrace">Registrace</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="obsah">
+        <h1>Pravidla hry</h1>
+        <ul>
+            <li>Proletej ptakem mezi trubkami a nenaraz.</li>
+            <li>Skok: sipka nahoru (lze zmenit v Settings) nebo leve tlacitko mysi.</li>
+            <li>Za kazdou projetou trubku je +1 bod.</li>
+            <li>Po prohre se skore, cas a achievementy ulozi do databaze.</li>
+        </ul>
+
+        <h2>Achievementy</h2>
+        <p>Za projeti trubek v jedne hre ziskas tyto achievementy:</p>
+        <p>
+            <img class="ach-ikona" src="/obrazek/20.png" alt="20 trubek"> 20 trubek &nbsp;
+            <img class="ach-ikona" src="/obrazek/50.png" alt="50 trubek"> 50 trubek &nbsp;
+            <img class="ach-ikona" src="/obrazek/60.png" alt="60 trubek"> 60 trubek &nbsp;
+            <img class="ach-ikona" src="/obrazek/100.png" alt="100 trubek"> 100 trubek
+        </p>
     </div>
 </body>
 </html>

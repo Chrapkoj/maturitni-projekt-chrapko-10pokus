@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="app">
-        <a href="index.html">home</a>
-        <a href="diagramy.html">diagramy</a>
-        <a href="leaderboard.html">leaderboard</a>
-        <a href="pravidla.html">pravidla</a>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/diagramy">Diagramy</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/pravidla">Pravidla</a>
+        <span class="prihlaseni">
+            {% if hrac %}
+                Hrac: {{ hrac }} | <a href="/logout">Odhlasit</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/registrace">Registrace</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="obsah">
+        <h1>Flappy Bird</h1>
+        <p>Maturitni projekt hry Flappy Bird v Pythonu (Pygame) s databazi MySQL a webem ve Flasku.</p>
+        <p>Autor: Jakub Chrapko</p>
+
+        {% if hrac %}
+            <h2>Moje posledni hry</h2>
+            {% if moje_hry %}
+                <table>
+                    <tr>
+                        <th>Skore</th>
+                        <th>Cas</th>
+                        <th>Achievementy</th>
+                    </tr>
+                    {% for score, cas, tagy in moje_hry %}
+                    <tr>
+                        <td>{{ score }}</td>
+                        <td>{{ cas }} s</td>
+                        <td>
+                            {% if tagy %}
+                                {% for nazev in tagy.split(', ') %}
+                                    {% if nazev in ach_obrazky %}
+                                        <img class="ach-ikona" src="/obrazek/{{ ach_obrazky[nazev] }}" alt="{{ nazev }}" title="{{ nazev }}">
+                                    {% else %}
+                                        {{ nazev }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>Zatim zadne ulozene hry.</p>
+            {% endif %}
+        {% endif %}
     </div>
 </body>
 </html>

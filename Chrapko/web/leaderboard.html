@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flappy Bird</title>
+    <title>Leaderboard - Flappy Bird</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="app">
-        <a href="index.html">home</a>
-        <a href="diagramy.html">diagramy</a>
-        <a href="leaderboard.html">leaderboard</a>
-        <a href="pravidla.html">pravidla</a>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/diagramy">Diagramy</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/pravidla">Pravidla</a>
+        <span class="prihlaseni">
+            {% if hrac %}
+                Hrac: {{ hrac }} | <a href="/logout">Odhlasit</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/registrace">Registrace</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="obsah">
+        <h1>Leaderboard - TOP 10</h1>
+
+        {% if scores %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Hrac</th>
+                        <th>Trubky</th>
+                        <th>Cas</th>
+                        <th>Achievementy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for username, score, cas, tagy_hry in scores %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ username }}</td>
+                        <td>{{ score }}</td>
+                        <td>{{ cas }} s</td>
+                        <td>
+                            {% if tagy_hry %}
+                                {% for nazev in tagy_hry.split(', ') %}
+                                    {% if nazev in ach_obrazky %}
+                                        <img class="ach-ikona" src="/obrazek/{{ ach_obrazky[nazev] }}" alt="{{ nazev }}" title="{{ nazev }}">
+                                    {% else %}
+                                        {{ nazev }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Zatim zadne vysledky.</p>
+        {% endif %}
     </div>
 </body>
 </html>

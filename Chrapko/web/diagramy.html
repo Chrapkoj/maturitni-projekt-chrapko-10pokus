@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flappy Bird</title>
+    <title>Diagramy - Flappy Bird</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="app">
-        <a href="index.html">home</a>
-        <a href="diagramy.html">diagramy</a>
-        <a href="leaderboard.html">leaderboard</a>
-        <a href="pravidla.html">pravidla</a>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/diagramy">Diagramy</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/pravidla">Pravidla</a>
+        <span class="prihlaseni">
+            {% if hrac %}
+                Hrac: {{ hrac }} | <a href="/logout">Odhlasit</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/registrace">Registrace</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="obsah">
+        <h1>ER diagram</h1>
+        <p>ER diagram databaze pro hru Flappy Bird.</p>
+        <img class="diagram-obr" src="/er-diagram" alt="ER diagram">
     </div>
 </body>
 </html>

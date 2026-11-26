@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Flappy Bird</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/diagramy">Diagramy</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/pravidla">Pravidla</a>
+        <span class="prihlaseni">
+            {% if hrac %}
+                Hrac: {{ hrac }} | <a href="/logout">Odhlasit</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/registrace">Registrace</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="obsah">
+        <h1>Prihlaseni</h1>
+        <form class="form-box" method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" maxlength="50" required>
+
+            <label for="password">Heslo:</label>
+            <input type="password" id="password" name="password" required>
+
+            {% if error %}
+                <p class="chyba">{{ error }}</p>
+            {% endif %}
+
+            <button type="submit">Prihlasit se</button>
+            <a href="/registrace" class="tlacitko">Registrovat</a>
+        </form>
+    </div>
+</body>
+</html>

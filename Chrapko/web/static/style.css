@@ -1,0 +1,150 @@
+/* zakladni styly pro web Flappy Bird */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c2533;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* navigace nahore */
+.nav {
+    background-color: #121821;
+    padding: 15px 20px;
+    border-bottom: 2px solid #35465c;
+}
+
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #ffd000;
+}
+
+.nav .prihlaseni {
+    float: right;
+}
+
+/* hlavni obsah stranky */
+.obsah {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #253244;
+    border: 1px solid #3c4f69;
+}
+
+h1, h2 {
+    color: #ffd000;
+    margin-top: 0;
+}
+
+p, li {
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+/* zpravy (flash) */
+.zprava {
+    background-color: #364963;
+    border: 1px solid #ffd000;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* formulare a tlacitka */
+input, select {
+    padding: 7px;
+    margin: 5px 0 12px 0;
+    background-color: #161e29;
+    color: #ffffff;
+    border: 1px solid #4a5e7a;
+}
+
+button, .tlacitko {
+    background-color: #2ea043;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+button:hover, .tlacitko:hover {
+    background-color: #248035;
+}
+
+.form-box {
+    max-width: 340px;
+}
+
+.form-box input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* tabulky */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #3c4f69;
+    padding: 9px;
+    text-align: left;
+}
+
+th {
+    background-color: #18212e;
+    color: #ffd000;
+}
+
+/* ikonky achievementu */
+.ach-ikona {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* obrazek ER diagramu */
+.diagram-obr {
+    max-width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* chybova hlaska ve formulari */
+.chyba {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+/* rozklikavaci radky v leaderboardu */
+.hlavni-radek {
+    cursor: pointer;
+}
+
+.hlavni-radek:hover {
+    background-color: #2e3e54;
+}
+
+.detail-radek td {
+    background-color: #1a2433;
+}
+
+.podtabulka {
+    margin: 5px 0;
+}
+

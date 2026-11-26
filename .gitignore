@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Udaje k databazi a log Flasku (necommitovat)
+pripojeni.py
+flask.log
+
